@@ -1,27 +1,38 @@
+const duck = document.getElementById('duck');
 const bullets = document.getElementsByClassName('bullet')
 const stepX = 100;
 const stepY = 50;
 let bulletCount = 3;
-//  call the duck element 'duck'
-//Make the duck move with the stepX or stepY increment
-//When the duck moves, the duck element has only one class name
-//.duck-down or .duck-right or .duck-up or duck-left among its direction
-
-
-
-
-//prevent the duck from going out of the screen
-
-
-
-
-
-//call the shoot function (already implemented)  when duck is shot
-
-
-
-
-
-//Manage the Game Over Case by using bulletCount variable
-
-
+duck.addEventListener('click',shoot)
+document.addEventListener("keydown", function(e){
+    switch(e.code) {
+        case "ArrowDown":
+            duck.style.top = `${duck.offsetTop +stepY}px` ;
+            duck.className="duck-down";
+            break;
+        case "ArrowLeft":
+            duck.style.left = `${duck.offsetLeft -stepX}px` ;
+            duck.className="duck-left";
+            break;
+        case "ArrowRight":
+            duck.style.left = `${duck.offsetLeft +stepX}px` ;
+            duck.className="duck-right";
+            break;
+        case "ArrowUp":
+            duck.style.top = `${duck.offsetTop -stepY}px` ;
+            duck.className="duck-up";
+            break;
+    }
+})
+function bulletDecrement(){
+    bulletCount--;
+    bullets[bulletCount].style.display="none";
+    if(bulletCount === 0){
+        gameOver();
+    }
+}
+const gameScreen = document.getElementById('gameScreen');
+gameScreen.addEventListener('click',()=>{
+    new Audio('sounds/gunShot.mp3').play();
+    bulletDecrement();
+})

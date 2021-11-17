@@ -1,1 +1,1 @@
-### follow the instructions in script2.js
+### follow the instructions in solution.js
