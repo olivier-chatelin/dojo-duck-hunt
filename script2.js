@@ -1,7 +1,9 @@
+const duck = document.getElementById('duck');
 const bullets = document.getElementsByClassName('bullet')
 const stepX = 100;
 const stepY = 50;
-let bulletCount = 3;
+const maxY = 450;
+const maxX = 1000;
 //  call the duck element 'duck'
 //Make the duck move with the stepX or stepY increment
 //When the duck moves, the duck element has only one class name
