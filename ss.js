@@ -3,8 +3,7 @@ const bullets = document.getElementsByClassName('bullet')
 const stepX = 100;
 const stepY = 50;
 const maxY = 450;
-const maxY = 1000;
-// const maxX =
+const maxX = 1000;
 
 let bulletCount = 3;
 duck.addEventListener('click',shoot)
